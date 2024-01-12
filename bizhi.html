@@ -1,6 +1,17 @@
-<?php
-$img_array = glob('img/*.{gif,jpg,png,jpeg,webp,bmp}', GLOB_BRACE);
-if(count($img_array) == 0) die('没找到图片文件。请先上传一些图片到 '.dirname(__FILE__).'/images/ 文件夹');
-header('Content-Type: image/png');
-echo(file_get_contents($img_array[array_rand($img_array)]));
-?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>随机显示图片</title>
+  </head>
+  <body>
+    <img id="random-image" src="">
+    
+    <script>
+      var images = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg"]; // 图片数组
+      var randomIndex = Math.floor(Math.random() * images.length); // 随机生成一个索引
+      var randomImage = images[randomIndex]; // 获取随机图片的路径
+      document.getElementById("random-image").src = randomImage; // 在页面中显示随机图片
+    </script>
+  </body>
+</html>
